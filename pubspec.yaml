@@ -1,8 +1,7 @@
 name: check_version
-description: A new Flutter package project.
+description: Check Android/iOs store version and provide update alert if update is available on stores.
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/wesleytoshio/check_version
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
