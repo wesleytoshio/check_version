@@ -1,0 +1,23 @@
+name: check_version
+description: A new Flutter package project.
+version: 0.0.1
+author:
+homepage:
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  http: ^0.12.2
+  html: ^0.14.0+4
+  url_launcher: ^5.7.10
+  package_info: ^0.4.3+2
+
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
