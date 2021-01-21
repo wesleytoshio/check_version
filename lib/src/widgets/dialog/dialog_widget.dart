@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 class DialogWidget {
   BuildContext context;
 
-  VoidCallback dismissAction;
+  VoidCallback onDismiss;
 
   VoidCallback onUpdate;
 
@@ -24,7 +24,7 @@ class DialogWidget {
 
   DialogWidget({
     this.context,
-    this.dismissAction,
+    this.onDismiss,
     this.onUpdate,
     this.title: 'Update Available',
     this.titlePadding,
@@ -60,7 +60,7 @@ class DialogWidget {
           actions: actions(),
         );
       },
-    );
+    ).whenComplete(() => onDismiss());
   }
 
   get _getCupertinoDialog {
@@ -77,7 +77,7 @@ class DialogWidget {
           actions: actions(),
         );
       },
-    );
+    ).whenComplete(() => onDismiss());
   }
 
   List<Widget> actions() => [

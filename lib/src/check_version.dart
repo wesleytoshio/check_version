@@ -19,7 +19,7 @@ class CheckVersion {
 
   String appStoreId;
 
-  VoidCallback dismissAction;
+  Function(VersionStatus) callback;
 
   String title;
 
@@ -39,7 +39,7 @@ class CheckVersion {
     this.playStoreId,
     this.appStoreId,
     @required this.context,
-    this.dismissAction,
+    this.callback,
     this.title,
     this.titlePadding,
     this.titleTextStyle,
@@ -55,6 +55,7 @@ class CheckVersion {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     VersionStatus versionStatus = VersionStatus(
       currentVersion: packageInfo.version,
+      packageName: packageInfo.packageName,
     );
     await _checkVersion(versionStatus);
     print('Needed update: ${versionStatus.hasUpdate}');
@@ -71,7 +72,10 @@ class CheckVersion {
         contentTextStyle: contentTextStyle,
         barrierDismissible: barrierDismissible,
         dialogLocale: _dialogLocale,
-        onUpdate: () => _launchStore(versionStatus.storeURL),
+        onUpdate: () {
+          _launchStore(versionStatus.storeURL);
+        },
+        onDismiss: () => callback(versionStatus),
       ).show();
     }
   }
@@ -79,11 +83,11 @@ class CheckVersion {
   _checkVersion(VersionStatus versionStatus) async {
     switch (Theme.of(context).platform) {
       case TargetPlatform.iOS:
-        versionStatus.storeURL = '$APP_STORE$appStoreId';
+        versionStatus.storeURL = '$APP_STORE${versionStatus.packageName}';
         await _getAppStoreVersion(versionStatus);
         break;
       case TargetPlatform.android:
-        versionStatus.storeURL = '$PLAY_STORE$playStoreId';
+        versionStatus.storeURL = '$PLAY_STORE${versionStatus.packageName}';
         await _getplayStoreVersion(versionStatus);
         break;
       default:

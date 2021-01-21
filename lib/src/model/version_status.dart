@@ -1,6 +1,6 @@
 class VersionStatus {
-  /// Checks for updates.
-  // bool hasUpdate;
+  /// Aplication ID.
+  String packageName;
 
   /// Recent version in store.
   String storeVersion;
@@ -11,7 +11,11 @@ class VersionStatus {
   /// Store url.
   String storeURL;
 
-  VersionStatus({this.storeVersion, this.currentVersion, this.storeURL});
+  VersionStatus(
+      {this.packageName,
+      this.storeVersion,
+      this.currentVersion,
+      this.storeURL});
 
   bool get hasUpdate =>
       (this.storeVersion != null && this.currentVersion != null) ??

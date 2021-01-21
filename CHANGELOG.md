@@ -13,3 +13,7 @@
 ## [0.0.4] - Flutter old versions.
 
 - add support flutter old versions
+
+## [0.0.5] - add function callback.
+
+- add function callback

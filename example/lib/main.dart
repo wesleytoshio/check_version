@@ -33,12 +33,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     CheckVersion(
-            context: context,
-            playStoreId: 'asap_ead.plataformaasap.com.br',
-            appStoreId: 'com.google.Vespa',
-            title: 'Atualização disponível',
-            locale: 'pt_BR')
-        .run();
+      context: context,
+      title: 'Atualização disponível',
+      locale: 'pt_BR',
+      callback: (versionStatus) => print(versionStatus),
+    ).run();
   }
 
   @override
