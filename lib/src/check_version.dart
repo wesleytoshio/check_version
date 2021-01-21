@@ -33,7 +33,7 @@ class CheckVersion {
 
   String locale;
 
-  bool canDismissible;
+  bool barrierDismissible;
 
   CheckVersion({
     this.playStoreId,
@@ -46,7 +46,7 @@ class CheckVersion {
     this.contentPadding,
     this.contentTextStyle,
     this.locale,
-    this.canDismissible = true,
+    this.barrierDismissible = true,
   }) : assert(context != null);
 
   run() async {
@@ -69,7 +69,7 @@ class CheckVersion {
         titlePadding: titlePadding,
         titleTextStyle: titleTextStyle,
         contentTextStyle: contentTextStyle,
-        canDismissible: canDismissible,
+        barrierDismissible: barrierDismissible,
         dialogLocale: _dialogLocale,
         onUpdate: () => _launchStore(versionStatus.storeURL),
       ).show();

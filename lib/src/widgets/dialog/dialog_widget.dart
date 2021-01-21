@@ -20,7 +20,7 @@ class DialogWidget {
 
   DialogLocale dialogLocale;
 
-  bool canDismissible;
+  bool barrierDismissible;
 
   DialogWidget({
     this.context,
@@ -31,7 +31,7 @@ class DialogWidget {
     this.titleTextStyle,
     this.contentTextStyle,
     this.dialogLocale,
-    this.canDismissible = true,
+    this.barrierDismissible = true,
   }) : assert(context != null);
 
   show() {
@@ -49,8 +49,8 @@ class DialogWidget {
 
   get _getDialog {
     showDialog(
+      barrierDismissible: barrierDismissible,
       context: context,
-      barrierDismissible: canDismissible,
       builder: (BuildContext context) {
         return AlertDialog(
           titleTextStyle: titleTextStyle,
@@ -64,9 +64,9 @@ class DialogWidget {
   }
 
   get _getCupertinoDialog {
-    showCupertinoDialog(
+    showDialog(
       context: context,
-      barrierDismissible: canDismissible,
+      barrierDismissible: barrierDismissible,
       builder: (BuildContext context) {
         return CupertinoAlertDialog(
           title: Text(
@@ -82,7 +82,7 @@ class DialogWidget {
 
   List<Widget> actions() => [
         Visibility(
-          visible: canDismissible,
+          visible: barrierDismissible,
           child: FlatButton(
             child: Text(dialogLocale.locale.dismissText.toUpperCase()),
             onPressed: () {
