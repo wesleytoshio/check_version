@@ -17,3 +17,7 @@
 ## [0.0.5] - add function callback.
 
 - add function callback
+
+## [0.0.6] - add function callback.
+
+- add function callback

@@ -15,10 +15,6 @@ import 'widgets/dialog/dialog_widget.dart';
 class CheckVersion {
   BuildContext context;
 
-  String playStoreId;
-
-  String appStoreId;
-
   Function(VersionStatus) callback;
 
   String title;
@@ -36,8 +32,6 @@ class CheckVersion {
   bool barrierDismissible;
 
   CheckVersion({
-    this.playStoreId,
-    this.appStoreId,
     @required this.context,
     this.callback,
     this.title,
