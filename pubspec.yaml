@@ -1,6 +1,6 @@
 name: check_version
 description: Check Android/iOs store version and provide update alert if update is available on stores.
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/wesleytoshio/check_version
 
 environment:

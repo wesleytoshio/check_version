@@ -18,6 +18,6 @@ class VersionStatus {
       this.storeURL});
 
   bool get hasUpdate =>
-      (this.storeVersion != null && this.currentVersion != null) ??
+      (this.storeVersion != null && this.currentVersion != null) &&
       this.storeVersion != this.currentVersion;
 }
